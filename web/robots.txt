@@ -1,0 +1,31 @@
+# 换域名时不需要改这里：Sitemap 地址由 hugo.yaml 的 baseURL 生成
+User-agent: *
+Allow: /
+Disallow: /search/
+Disallow: /print/
+Disallow: /*?q=
+
+# 百度：显式允许，避免被通用规则误伤
+User-agent: Baiduspider
+Allow: /
+Disallow: /search/
+Disallow: /print/
+
+# 神马 / 360 / 搜狗（国内移动与 PC 引擎）
+User-agent: YisouSpider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+# Google / Bing
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://avatarmeherbaba2026.cyou/sitemap.xml
