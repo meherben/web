@@ -1,6 +1,6 @@
 @echo off
 rem ===========================================================================
-rem  Publish D:\file\hugo\meherDocsy\public to Gitee
+rem  Publish this folder (D:\file\hugo\public) to Gitee
 rem  Repo : git@gitee.com:ben198901/public.git
 rem  Key  : D:\file\key\gitee\gitee  (private) / gitee.pub (public)
 rem
@@ -12,11 +12,15 @@ rem    .git, we just commit & push; if not, we init one bound to the Gitee
 rem    remote. --cleanDestinationDir in the build script only wipes the site
 rem    output, so .git survives across rebuilds as long as you don't delete it.
 rem  - Accepts an optional commit message as %1. Defaults to a timestamp.
+rem  - PUBDIR is derived from this script's own location, so the folder can be
+rem    moved (it already moved out of <project>\public into D:\file\hugo\public)
+rem    without editing the script again.
 rem ===========================================================================
 setlocal EnableExtensions EnableDelayedExpansion
 pushd "%~dp0" || goto :no_cwd
 
-set "PUBDIR=D:\file\hugo\meherDocsy\public"
+rem %%~fI resolves "%~dp0." to the script's folder with no trailing backslash.
+for %%I in ("%~dp0.") do set "PUBDIR=%%~fI"
 set "KEYDIR=D:\file\key\gitee"
 set "KEY=%KEYDIR%\gitee"
 set "REMOTE=git@gitee.com:ben198901/public.git"

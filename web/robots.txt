@@ -24,8 +24,12 @@ Allow: /
 # Google / Bing
 User-agent: Googlebot
 Allow: /
+Disallow: /search/
+Disallow: /print/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /search/
+Disallow: /print/
 
 Sitemap: https://avatarmeherbaba2026.cyou/sitemap.xml
